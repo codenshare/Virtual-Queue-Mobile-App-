@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome to the Store!</h1>
+        @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
+
+        @model Virtual_Queue.Controllers.SubscribeModel
+
+        <h1> @Model.Response</h1>
+        @using (Html.BeginForm("Validate", "Home", FormMethod.Post))
+        
+        {
+            @Html.TextBoxFor(model => model.StoreID)
+            @Html.TextBoxFor(model => model.Secret)
+            @Html.ValidationMessageFor(model => model.Secret)
+
+        <button type="submit">Validate</button>
+    }
+    </div>
